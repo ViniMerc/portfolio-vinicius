@@ -7,21 +7,23 @@ import {
   Typography,
 } from "@mui/material";
 
-const Cards = () => {
+const Cards = ({ title, description, image }) => {
   return (
-    <Card sx={{ maxWidth: 345 }}>
-      <CardMedia sx={{ height: 140 }} image="projeto1.png" title="projeto1" />
+    <Card sx={{ width: 345 }}>
+      <CardMedia sx={{ height: 200 }} image={image} title={image} />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          PokeOlympics
+          {title}
         </Typography>
         <Typography variant="body2" sx={{ color: "text.secondary" }}>
-          Projeto Hackathon das Olimpíadas de Paris 2024
+          {description}
         </Typography>
       </CardContent>
-      <CardActions>
+      <CardActions sx={{ justifyContent: "flex-end" }}>
         <Button size="small">Repositório</Button>
-        <Button size="small">Acesse</Button>
+        <Button size="small" variant="contained">
+          Acesse
+        </Button>
       </CardActions>
     </Card>
   );
