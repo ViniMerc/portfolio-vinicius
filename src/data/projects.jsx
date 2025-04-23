@@ -9,14 +9,14 @@ export const projects = [
   {
     title: "Vinicius Viagens 1.0",
     description: "Site de viagens com HTML e CSS",
-    image: "computer.svg", // Using placeholder image
+    image: "", 
     repoUrl: "#",
     liveUrl: "#"
   },
   {
     title: "Vinicius Viagens 2.0",
     description: "Site de viagens refeito com protótipo de Desing e utlilzando React e Material UI",
-    image: "computer.svg", // Using placeholder image
+    image: "",  
     repoUrl: "#",
     liveUrl: "#"
   }

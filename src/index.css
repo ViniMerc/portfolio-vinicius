@@ -3,15 +3,19 @@
   background-color: #242424;
   width: 100%;
   overflow-x: hidden;
-  
+
   /* Typography scale */
-  --font-size-h1: 2.5rem;    /* 40px */
-  --font-size-h2: 2rem;      /* 32px */
-  --font-size-h3: 1.75rem;   /* 28px */
-  --font-size-h4: 1.5rem;    /* 24px */
-  --font-size-h5: 1.25rem;   /* 20px */
-  --font-size-h6: 1rem;      /* 16px */
-  --font-size-body: 1rem;    /* 16px */
+  --font-size-h1: 2.5rem; /* 40px */
+  --font-size-h2: 2rem; /* 32px */
+  --font-size-h3: 1.75rem; /* 28px */
+  --font-size-h4: 1.5rem; /* 24px */
+  --font-size-h5: 1.25rem; /* 20px */
+  --font-size-h6: 1rem; /* 16px */
+  --font-size-body: 1rem; /* 16px */
+
+  --mint-primary: #e4f0e5;
+  --mint-dark: #c8d9c9;
+  --mint-darker: #a3b7a4;
 }
 
 body {
@@ -23,6 +27,43 @@ body {
   width: 100%;
   overflow-x: hidden;
   padding: 0;
+  position: relative;
+  background: #242424;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: radial-gradient(
+      circle at 10% 20%,
+      rgba(228, 240, 229, 0.03) 0%,
+      transparent 20%
+    ),
+    radial-gradient(
+      circle at 90% 30%,
+      rgba(228, 240, 229, 0.02) 0%,
+      transparent 20%
+    ),
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(228, 240, 229, 0.01) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 70%,
+      rgba(200, 217, 201, 0.02) 0%,
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 20% 80%,
+      rgba(163, 183, 164, 0.03) 0%,
+      transparent 40%
+    );
 }
 
 #root {
@@ -40,32 +81,115 @@ img {
 }
 
 /* Typography styles */
-h1, .h1 {
+h1,
+.h1 {
   font-size: var(--font-size-h1);
   margin-bottom: 1.5rem;
 }
 
-h2, .h2 {
+h2,
+.h2 {
   font-size: var(--font-size-h2);
   margin-bottom: 1.25rem;
 }
 
-h3, .h3 {
+h3,
+.h3 {
   font-size: var(--font-size-h3);
   margin-bottom: 1rem;
 }
 
-h4, .h4 {
+h4,
+.h4 {
   font-size: var(--font-size-h4);
   margin-bottom: 1rem;
 }
 
-h5, .h5 {
+h5,
+.h5 {
   font-size: var(--font-size-h5);
   margin-bottom: 0.75rem;
 }
 
-h6, .h6 {
+h6,
+.h6 {
   font-size: var(--font-size-h6);
   margin-bottom: 0.75rem;
+}
+
+/* Animated floating shapes */
+.shape {
+  position: fixed;
+  opacity: 0.15; /* Increased from 0.1 */
+  pointer-events: none;
+  backdrop-filter: blur(5px);
+}
+
+.shape-1 {
+  width: 300px;
+  height: 300px;
+  clip-path: polygon(
+    30% 0%,
+    70% 0%,
+    100% 30%,
+    100% 70%,
+    70% 100%,
+    30% 100%,
+    0% 70%,
+    0% 30%
+  );
+  background: linear-gradient(
+    45deg,
+    rgba(228, 240, 229, 0.2),
+    rgba(200, 217, 201, 0.15)
+  );
+  top: 10%;
+  left: 65%;
+  animation: float 20s ease-in-out infinite;
+}
+
+.shape-2 {
+  width: 200px;
+  height: 200px;
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  background: linear-gradient(
+    -45deg,
+    rgba(163, 183, 164, 0.2),
+    rgba(228, 240, 229, 0.15)
+  );
+  top: 60%;
+  right: 40%;
+  animation: float 25s ease-in-out infinite;
+}
+
+.shape-3 {
+  width: 250px;
+  height: 250px;
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+  background: linear-gradient(
+    135deg,
+    rgba(228, 240, 229, 0.2),
+    rgba(163, 183, 164, 0.15)
+  );
+  bottom: 10%;
+  left: 15%;
+  animation: float 30s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+  25% {
+    transform: translate(10px, 15px) rotate(5deg) scale(1.05);
+  }
+  50% {
+    transform: translate(0, 25px) rotate(0deg) scale(1);
+  }
+  75% {
+    transform: translate(-10px, 15px) rotate(-5deg) scale(1.05);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
 }

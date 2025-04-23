@@ -7,6 +7,9 @@ import { projects } from "./data/projects";
 function App() {
   return (
     <>
+      <div className="shape shape-1"></div>
+      <div className="shape shape-2"></div>
+      <div className="shape shape-3"></div>
       <Grid container>
         <Profile />
         <Grid item size={12} sx={{ textAlign: "center", mb: 3 }}>
