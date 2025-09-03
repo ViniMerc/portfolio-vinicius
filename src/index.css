@@ -1,21 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap');
+
 :root {
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: #ffffff;
+  background-color: #0f2027;
   width: 100%;
   overflow-x: hidden;
 
   /* Typography scale */
-  --font-size-h1: 2.5rem; /* 40px */
-  --font-size-h2: 2rem; /* 32px */
-  --font-size-h3: 1.75rem; /* 28px */
-  --font-size-h4: 1.5rem; /* 24px */
-  --font-size-h5: 1.25rem; /* 20px */
-  --font-size-h6: 1rem; /* 16px */
-  --font-size-body: 1rem; /* 16px */
+  --font-size-h1: 3.5rem; /* 56px */
+  --font-size-h2: 2.5rem; /* 40px */
+  --font-size-h3: 2rem; /* 32px */
+  --font-size-h4: 1.75rem; /* 28px */
+  --font-size-h5: 1.5rem; /* 24px */
+  --font-size-h6: 1.25rem; /* 20px */
+  --font-size-body: 1.125rem; /* 18px */
 
-  --mint-primary: #e4f0e5;
-  --mint-dark: #c8d9c9;
-  --mint-darker: #a3b7a4;
+  /* Color palette */
+  --primary-blue: #3b82f6;
+  --dark-gray: #1e1e1e;
+  --light-gray: #6b7280;
+  --white: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.8);
 }
 
 body {
@@ -23,98 +28,271 @@ body {
   min-height: 100vh;
   font-family: "Roboto", sans-serif;
   font-size: var(--font-size-body);
-  line-height: 1.5;
+  line-height: 1.6;
   width: 100%;
   overflow-x: hidden;
   padding: 0;
   position: relative;
-  background: #242424;
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  background: radial-gradient(
-      circle at 10% 20%,
-      rgba(228, 240, 229, 0.03) 0%,
-      transparent 20%
-    ),
-    radial-gradient(
-      circle at 90% 30%,
-      rgba(228, 240, 229, 0.02) 0%,
-      transparent 20%
-    ),
-    radial-gradient(
-      circle at 50% 50%,
-      rgba(228, 240, 229, 0.01) 0%,
-      transparent 50%
-    ),
-    radial-gradient(
-      circle at 80% 70%,
-      rgba(200, 217, 201, 0.02) 0%,
-      transparent 30%
-    ),
-    radial-gradient(
-      circle at 20% 80%,
-      rgba(163, 183, 164, 0.03) 0%,
-      transparent 40%
-    );
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  background-attachment: fixed;
 }
 
 #root {
-  max-width: 1280px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 1rem;
+  padding: 2rem;
   width: 100%;
   box-sizing: border-box;
 }
 
-img {
+/* Ajustar z-index para conteúdo */
+.app {
+  position: relative;
+  z-index: 2;
+}
+
+/* Hero Section */
+.hero-section {
+  text-align: center;
+  padding: 4rem 0;
+  margin-bottom: 4rem;
+}
+
+.hero-photo {
   max-width: 200px;
+  max-height: 170px;
   border-radius: 50%;
   margin-bottom: 2rem;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  /* box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3); */
+}
+
+.hero-name {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: var(--font-size-h1);
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #ffffff, #e2e8f0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-description {
+  font-size: var(--font-size-h3);
+  color: var(--text-muted);
+  margin-bottom: 3rem;
+  font-weight: 300;
+}
+
+/* Social Buttons */
+.social-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 4rem;
+}
+
+.social-button {
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.social-button.github {
+  background-color: var(--dark-gray);
+  color: var(--white);
+  border-color: #374151;
+}
+
+.social-button.github:hover {
+  background-color: #374151;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.social-button.linkedin {
+  background-color: #0077b5;
+  color: var(--white);
+}
+
+.social-button.linkedin:hover {
+  background-color: #005885;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.social-button.download {
+  background-color: var(--primary-blue);
+  color: var(--white);
+}
+
+.social-button.download:hover {
+  background-color: #2563eb;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Projects Section */
+.projects-section {
+  margin-top: 4rem;
+}
+
+.projects-title {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: var(--font-size-h2);
+  text-align: center;
+  margin-bottom: 3rem;
+  color: var(--white);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  max-width: 100%;
+}
+
+/* Project Cards */
+.project-card {
+  background: var(--dark-gray);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+.card-image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover .card-image img {
+  transform: scale(1.05);
+}
+
+.card-content {
+  padding: 1.5rem;
+}
+
+.card-title {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: var(--font-size-h4);
+  color: var(--white);
+  margin: 0 0 1rem 0;
+  line-height: 1.3;
+}
+
+.card-description {
+  color: var(--text-muted);
+  font-size: var(--font-size-body);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.card-actions {
+  display: flex;
+  gap: 1rem;
+  padding: 0 1.5rem 1.5rem 1.5rem;
+}
+
+.card-button {
+  flex: 1;
+  padding: 12px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.card-button.repository {
+  background-color: var(--dark-gray);
+  color: var(--white);
+  border: 2px solid #374151;
+}
+
+.card-button.repository:hover {
+  background-color: #374151;
+  border-color: #4b5563;
+}
+
+.card-button.access {
+  background-color: var(--primary-blue);
+  color: var(--white);
+}
+
+.card-button.access:hover {
+  background-color: #2563eb;
 }
 
 /* Typography styles */
-h1,
-.h1 {
+h1, .h1 {
+  font-family: "Montserrat", sans-serif;
   font-size: var(--font-size-h1);
   margin-bottom: 1.5rem;
+  font-weight: 600;
 }
 
-h2,
-.h2 {
+h2, .h2 {
+  font-family: "Montserrat", sans-serif;
   font-size: var(--font-size-h2);
   margin-bottom: 1.25rem;
+  font-weight: 600;
 }
 
-h3,
-.h3 {
+h3, .h3 {
+  font-family: "Montserrat", sans-serif;
   font-size: var(--font-size-h3);
   margin-bottom: 1rem;
+  font-weight: 500;
 }
 
-h4,
-.h4 {
+h4, .h4 {
+  font-family: "Montserrat", sans-serif;
   font-size: var(--font-size-h4);
   margin-bottom: 1rem;
+  font-weight: 500;
 }
 
-h5,
-.h5 {
+h5, .h5 {
+  font-family: "Montserrat", sans-serif;
   font-size: var(--font-size-h5);
   margin-bottom: 0.75rem;
+  font-weight: 500;
 }
 
-h6,
-.h6 {
+h6, .h6 {
+  font-family: "Montserrat", sans-serif;
   font-size: var(--font-size-h6);
   margin-bottom: 0.75rem;
+  font-weight: 500;
 }
 
 /* Animated floating shapes */
@@ -191,5 +369,54 @@ h6,
   }
   100% {
     transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  #root {
+    padding: 1rem;
+  }
+  
+  .hero-section {
+    padding: 2rem 0;
+  }
+  
+  .hero-name {
+    font-size: var(--font-size-h2);
+  }
+  
+  .hero-description {
+    font-size: var(--font-size-h4);
+  }
+  
+  .social-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .social-button {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+  }
+  
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-photo {
+    max-width: 150px;
+  }
+  
+  .hero-name {
+    font-size: var(--font-size-h3);
+  }
+  
+  .hero-description {
+    font-size: var(--font-size-h5);
   }
 }

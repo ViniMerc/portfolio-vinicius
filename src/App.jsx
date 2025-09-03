@@ -1,45 +1,45 @@
-import { Stack, Typography } from "@mui/material";
-import { Grid2 as Grid } from "@mui/material";
+import { motion } from "framer-motion";
 import Cards from "./components/card";
 import Profile from "./components/profile";
+import Particles from "./components/Particles";
 import { projects } from "./data/projects";
 
 function App() {
   return (
-    <>
-      <div className="shape shape-1"></div>
-      <div className="shape shape-2"></div>
-      <div className="shape shape-3"></div>
-      <Grid container>
+    <div className="app">
+      <div style={{ width: '100%', height: '100vh', position: 'fixed', top: 0, left: 0, zIndex: 1 }}>
+        <Particles
+          particleColors={['#ffffff', '#ffffff']}
+          particleCount={200}
+          particleSpread={10}
+          speed={0.5}
+          particleBaseSize={100}
+          moveParticlesOnHover={false}
+          alphaParticles={false}
+          disableRotation={true}
+        />
+      </div>
+      
+      <div style={{ position: 'relative', zIndex: 2 }}>
         <Profile />
-        <Grid item size={12} sx={{ textAlign: "center", mb: 3 }}>
-          <Typography
-            variant="h4"
-            sx={{
-              fontSize: "var(--font-size-h4)",
-              marginBottom: "1rem",
-            }}
-          >
-            Projetos
-          </Typography>
-        </Grid>
-        <Grid
-          item
-          size={12}
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
+        
+        <motion.section
+          className="projects-section"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
         >
-          <Stack direction={{ xs: "column", md: "row" }} spacing={5}>
+          <h2 className="projects-title">Projetos</h2>
+          
+          <div className="projects-grid">
             {projects.map((project, index) => (
               <Cards key={index} {...project} />
             ))}
-          </Stack>
-        </Grid>
-      </Grid>
-    </>
+          </div>
+        </motion.section>
+      </div>
+    </div>
   );
 }
 
