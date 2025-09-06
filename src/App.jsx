@@ -1,15 +1,24 @@
 import { motion } from "framer-motion";
 import Cards from "./components/card";
-import Profile from "./components/profile";
 import Particles from "./components/Particles";
 import { projects } from "./data/projects";
+import Profile from "./components/profile";
 
 function App() {
   return (
     <div className="app">
-      <div style={{ width: '100%', height: '100vh', position: 'fixed', top: 0, left: 0, zIndex: 1 }}>
+      <div
+        style={{
+          width: "100%",
+          height: "100vh",
+          position: "fixed",
+          top: 0,
+          left: 0,
+          zIndex: 1,
+        }}
+      >
         <Particles
-          particleColors={['#ffffff', '#ffffff']}
+          particleColors={["#ffffff", "#ffffff"]}
           particleCount={200}
           particleSpread={10}
           speed={0.5}
@@ -19,10 +28,10 @@ function App() {
           disableRotation={true}
         />
       </div>
-      
-      <div style={{ position: 'relative', zIndex: 2 }}>
+
+      <div style={{ position: "relative", zIndex: 2 }}>
         <Profile />
-        
+
         <motion.section
           className="projects-section"
           initial={{ opacity: 0 }}
@@ -30,8 +39,6 @@ function App() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="projects-title">Projetos</h2>
-          
           <div className="projects-grid">
             {projects.map((project, index) => (
               <Cards key={index} {...project} />

@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { SiMui, SiNextdotjs, SiReact } from "react-icons/si";
 
 const Profile = () => {
   return (
@@ -16,6 +17,17 @@ const Profile = () => {
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 0.6, delay: 0.2 }}
       />
+
+      <motion.div
+        className="tech-icons"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.7 }}
+      >
+        <SiReact className="icon react" title="React" />
+        <SiNextdotjs className="icon next" title="Next.js" />
+        <SiMui className="icon mui" title="Material UI" />
+      </motion.div>
 
       <motion.h1
         className="hero-name"

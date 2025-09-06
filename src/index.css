@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap");
 
 :root {
   color: #ffffff;
@@ -59,12 +59,19 @@ body {
 }
 
 .hero-photo {
+  width: 100%;
   max-width: 200px;
-  max-height: 170px;
+  height: auto;
   border-radius: 50%;
   margin-bottom: 2rem;
   border: 2px solid rgba(255, 255, 255, 0.1);
-  /* box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3); */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15); /* subtle shadow for depth */
+  object-fit: cover;
+  transition: box-shadow 0.3s;
+}
+
+.hero-photo:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25); /* slightly stronger on hover */
 }
 
 .hero-name {
@@ -91,7 +98,7 @@ body {
   gap: 1rem;
   justify-content: center;
   flex-wrap: wrap;
-  margin-bottom: 4rem;
+  margin-top: 4rem;
 }
 
 .social-button {
@@ -253,42 +260,48 @@ body {
 }
 
 /* Typography styles */
-h1, .h1 {
+h1,
+.h1 {
   font-family: "Montserrat", sans-serif;
   font-size: var(--font-size-h1);
   margin-bottom: 1.5rem;
   font-weight: 600;
 }
 
-h2, .h2 {
+h2,
+.h2 {
   font-family: "Montserrat", sans-serif;
   font-size: var(--font-size-h2);
   margin-bottom: 1.25rem;
   font-weight: 600;
 }
 
-h3, .h3 {
+h3,
+.h3 {
   font-family: "Montserrat", sans-serif;
   font-size: var(--font-size-h3);
   margin-bottom: 1rem;
   font-weight: 500;
 }
 
-h4, .h4 {
+h4,
+.h4 {
   font-family: "Montserrat", sans-serif;
   font-size: var(--font-size-h4);
   margin-bottom: 1rem;
   font-weight: 500;
 }
 
-h5, .h5 {
+h5,
+.h5 {
   font-family: "Montserrat", sans-serif;
   font-size: var(--font-size-h5);
   margin-bottom: 0.75rem;
   font-weight: 500;
 }
 
-h6, .h6 {
+h6,
+.h6 {
   font-family: "Montserrat", sans-serif;
   font-size: var(--font-size-h6);
   margin-bottom: 0.75rem;
@@ -354,6 +367,35 @@ h6, .h6 {
   animation: float 30s ease-in-out infinite;
 }
 
+.tech-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 10px;
+}
+
+.tech-icons .icon {
+  font-size: 2rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+}
+
+.tech-icons .icon:hover {
+  transform: scale(1.2);
+}
+
+.icon.react {
+  color: #61dafb;
+}
+
+.icon.next {
+  color: #fff;
+}
+
+.icon.mui {
+  color: #007fff;
+}
+
 @keyframes float {
   0% {
     transform: translate(0, 0) rotate(0deg) scale(1);
@@ -377,30 +419,34 @@ h6, .h6 {
   #root {
     padding: 1rem;
   }
-  
+
   .hero-section {
     padding: 2rem 0;
   }
-  
+
   .hero-name {
     font-size: var(--font-size-h2);
   }
-  
+
+  .hero-photo {
+    max-width: 150px;
+  }
+
   .hero-description {
     font-size: var(--font-size-h4);
   }
-  
+
   .social-buttons {
     flex-direction: column;
     align-items: center;
   }
-  
+
   .social-button {
     width: 100%;
     max-width: 300px;
     justify-content: center;
   }
-  
+
   .projects-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
@@ -409,13 +455,14 @@ h6, .h6 {
 
 @media (max-width: 480px) {
   .hero-photo {
-    max-width: 150px;
+    width: 60vw;
+    max-width: 180px;
+    min-width: 80px;
   }
-  
   .hero-name {
     font-size: var(--font-size-h3);
   }
-  
+
   .hero-description {
     font-size: var(--font-size-h5);
   }
