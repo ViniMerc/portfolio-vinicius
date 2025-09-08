@@ -1,9 +1,8 @@
 import { motion } from "framer-motion";
-import { DataStudies } from "../data/DataStudies";
+import { DataProjects } from "../data/DataProjects";
 import Cards from "../components/card";
-import "../../src/index.css";
 
-const ProjectsSection = () => {
+const StudiesSection = () => {
   return (
     <motion.section
       className="projects-section"
@@ -18,11 +17,11 @@ const ProjectsSection = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.4 }}
       >
-        Projetos
+        Estudos
       </motion.h2>
 
       <div className="projects-grid">
-        {DataStudies.map((project, index) => (
+        {DataProjects.map((project, index) => (
           <Cards key={index} {...project} />
         ))}
       </div>
@@ -30,4 +29,4 @@ const ProjectsSection = () => {
   );
 };
 
-export default ProjectsSection;
+export default StudiesSection;

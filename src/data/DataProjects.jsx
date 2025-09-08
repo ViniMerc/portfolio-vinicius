@@ -20,4 +20,5 @@ export const DataProjects = [
     repoUrl: "https://github.com/viniciuschede/vinicius-viagens-v2",
     liveUrl: "https://vinicius-viagens-v2.vercel.app"
   }
+  ,
 ];
