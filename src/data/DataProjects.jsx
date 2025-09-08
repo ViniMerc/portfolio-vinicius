@@ -1,4 +1,4 @@
-export const projects = [
+export const DataProjects = [
   {
     title: "PokeOlympics",
     description: "Projeto Hackathon das Olimpíadas de Paris 2024 - Aplicação web interativa com tema olímpico e Pokémon, desenvolvida com React e tecnologias modernas.",

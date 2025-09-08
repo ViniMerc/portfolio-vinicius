@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { SiMui, SiNextdotjs, SiReact } from "react-icons/si";
 
-const Profile = () => {
+const ProfileSection = () => {
   return (
     <motion.div
       className="hero-section"
@@ -97,4 +97,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default ProfileSection;
