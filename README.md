@@ -1,4 +1,4 @@
-# 💼 Portfolio Pessoal
+# 💼 Portfólio Pessoal
 
 Um site de portfólio moderno e interativo desenvolvido com React, exibindo projetos pessoais através da integração com a API do GitHub.
 
