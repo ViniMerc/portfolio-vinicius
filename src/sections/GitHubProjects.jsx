@@ -4,8 +4,10 @@ import { fetchGitHubRepositories, formatDate } from '../services/githubService';
 
 const GitHubProjects = () => {
   const [repositories, setRepositories] = useState([]);
+  const [filteredRepositories, setFilteredRepositories] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [selectedLanguage, setSelectedLanguage] = useState('all');
 
   useEffect(() => {
     const loadRepositories = async () => {
@@ -13,6 +15,7 @@ const GitHubProjects = () => {
         setLoading(true);
         const repos = await fetchGitHubRepositories();
         setRepositories(repos);
+        setFilteredRepositories(repos);
       } catch (err) {
         setError('Erro ao carregar projetos do GitHub');
         console.error(err);
@@ -23,6 +26,16 @@ const GitHubProjects = () => {
 
     loadRepositories();
   }, []);
+
+  // Filtro de linguagens
+  useEffect(() => {
+    if (selectedLanguage === 'all') {
+      setFilteredRepositories(repositories);
+    } else {
+      const filtered = repositories.filter(repo => repo.language === selectedLanguage);
+      setFilteredRepositories(filtered);
+    }
+  }, [selectedLanguage, repositories]);
 
   const getLanguageColor = (language) => {
     const colors = {
@@ -47,6 +60,14 @@ const GitHubProjects = () => {
       'Node.js': '#339933'
     };
     return colors[language] || '#6b7280';
+  };
+
+  // Obter linguagens únicas dos repositórios
+  const getUniqueLanguages = () => {
+    const languages = repositories
+      .map(repo => repo.language)
+      .filter(language => language !== null && language !== undefined);
+    return [...new Set(languages)].sort();
   };
 
   if (loading) {
@@ -115,8 +136,51 @@ const GitHubProjects = () => {
         Projetos
       </motion.h2>
 
+      {/* Contador de projetos */}
+      <motion.div
+        className="projects-counter"
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.5 }}
+      >
+        {filteredRepositories.length} {filteredRepositories.length === 1 ? 'projeto' : 'projetos'}
+        {selectedLanguage !== 'all' && (
+          <span className="filter-indicator"> em {selectedLanguage}</span>
+        )}
+      </motion.div>
+
+      {/* Filtro de linguagens */}
+      <motion.div
+        className="language-filter"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.6 }}
+      >
+        <button
+          className={`filter-button ${selectedLanguage === 'all' ? 'active' : ''}`}
+          onClick={() => setSelectedLanguage('all')}
+          style={{ 
+            backgroundColor: selectedLanguage === 'all' ? 'var(--primary-green)' : 'var(--dark-gray)'
+          }}
+        >
+          Todos
+        </button>
+        {getUniqueLanguages().map((language) => (
+          <button
+            key={language}
+            className={`filter-button ${selectedLanguage === language ? 'active' : ''}`}
+            onClick={() => setSelectedLanguage(language)}
+            style={{ 
+              backgroundColor: selectedLanguage === language ? getLanguageColor(language) : 'var(--dark-gray)'
+            }}
+          >
+            {language}
+          </button>
+        ))}
+      </motion.div>
+
       <div className="projects-list">
-        {repositories.map((repo, index) => (
+        {filteredRepositories.map((repo, index) => (
           <motion.div
             key={repo.id}
             className="project-item"
@@ -138,28 +202,14 @@ const GitHubProjects = () => {
                   </span>
                 )}
               </div>
-              <div className="project-stats">
-                <span className="stat">
-                  <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                  </svg>
-                  {repo.stargazers_count}
-                </span>
-                <span className="stat">
-                  <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                  </svg>
-                  {repo.forks_count}
-                </span>
+              <div className="project-date">
+                Atualizado em {formatDate(repo.updated_at)}
               </div>
             </div>
             
             <p className="project-description">{repo.description}</p>
             
             <div className="project-footer">
-              <div className="project-date">
-                Atualizado em {formatDate(repo.updated_at)}
-              </div>
               <div className="project-actions">
                 <a
                   href={repo.html_url}

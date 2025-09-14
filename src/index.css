@@ -160,8 +160,64 @@ body {
   font-weight: 600;
   font-size: var(--font-size-h2);
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
   color: var(--white);
+}
+
+.projects-counter {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--text-muted);
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.filter-indicator {
+  color: var(--primary-green);
+  font-weight: 500;
+}
+
+/* Language Filter */
+.language-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+  padding: 0 1rem;
+}
+
+.filter-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.875rem;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  background-color: var(--dark-gray);
+  color: var(--white);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.filter-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.filter-button.active {
+  color: white;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.filter-button.active:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 /* GitHub Projects List */
@@ -243,7 +299,7 @@ body {
 
 .project-footer {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   gap: 1rem;
 }
@@ -635,6 +691,16 @@ h6,
   .project-link {
     flex: 1;
     justify-content: center;
+  }
+
+  .language-filter {
+    gap: 0.5rem;
+    padding: 0 0.5rem;
+  }
+
+  .filter-button {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
   }
 }
 
