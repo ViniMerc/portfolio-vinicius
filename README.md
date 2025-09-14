@@ -2,6 +2,8 @@
 
 Um site de portfólio moderno e interativo desenvolvido com React, exibindo projetos pessoais através da integração com a API do GitHub.
 
+🌐 **Acesse o site:** [https://vinimerc-portfolio.vercel.app/](https://vinimerc-portfolio.vercel.app/)
+
 ## 🛠️ Tecnologias Utilizadas
 
 - ![React](https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=black) **React 18**
