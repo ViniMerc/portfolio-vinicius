@@ -64,7 +64,7 @@ const GitHubProjects = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          Projetos GitHub
+          Projetos
         </motion.h2>
         <div className="loading-container">
           <div className="loading-spinner"></div>
@@ -89,7 +89,7 @@ const GitHubProjects = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          Projetos GitHub
+          Projetos
         </motion.h2>
         <div className="error-container">
           <p>{error}</p>
@@ -112,7 +112,7 @@ const GitHubProjects = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.4 }}
       >
-        Projetos GitHub
+        Projetos
       </motion.h2>
 
       <div className="projects-list">
