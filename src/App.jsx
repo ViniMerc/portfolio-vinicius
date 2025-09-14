@@ -1,7 +1,6 @@
 import Particles from "./components/Particles";
 import ProfileSection from "./sections/ProfileSection";
-import ProjectsSection from "./sections/ProjectsSection";
-import StudiesSection from "./sections/StudiesSection";
+import GitHubProjects from "./sections/GitHubProjects";
 
 function App() {
   return (
@@ -19,8 +18,7 @@ function App() {
 
       <div style={{ position: "relative", zIndex: 2 }}>
         <ProfileSection />
-        <ProjectsSection />
-        <StudiesSection />
+        <GitHubProjects />
       </div>
     </div>
   );
