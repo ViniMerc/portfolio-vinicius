@@ -16,7 +16,7 @@
   --font-size-body: 1.125rem; /* 18px */
 
   /* Color palette */
-  --primary-blue: #3b82f6;
+  --primary-green: #10b981;
   --dark-gray: #1e1e1e;
   --light-gray: #6b7280;
   --white: #ffffff;
@@ -140,12 +140,12 @@ body {
 }
 
 .social-button.download {
-  background-color: var(--primary-blue);
+  background-color: var(--primary-green);
   color: var(--white);
 }
 
 .social-button.download:hover {
-  background-color: #2563eb;
+  background-color: #059669;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
@@ -283,12 +283,12 @@ body {
 }
 
 .project-link:last-child {
-  background-color: var(--primary-blue);
+  background-color: var(--primary-green);
   color: var(--white);
 }
 
 .project-link:last-child:hover {
-  background-color: #2563eb;
+  background-color: #059669;
 }
 
 /* Loading and Error States */
@@ -303,7 +303,7 @@ body {
   width: 40px;
   height: 40px;
   border: 3px solid rgba(255, 255, 255, 0.1);
-  border-top: 3px solid var(--primary-blue);
+  border-top: 3px solid var(--primary-green);
   border-radius: 50%;
   animation: spin 1s linear infinite;
   margin: 0 auto 1rem;
@@ -397,12 +397,12 @@ body {
 }
 
 .card-button.access {
-  background-color: var(--primary-blue);
+  background-color: var(--primary-green);
   color: var(--white);
 }
 
 .card-button.access:hover {
-  background-color: #2563eb;
+  background-color: #059669;
 }
 
 /* Typography styles */
@@ -540,6 +540,22 @@ h6,
 
 .icon.mui {
   color: #007fff;
+}
+
+.icon.reactnative {
+  color: #61dafb;
+}
+
+.icon.javascript {
+  color: #f7df1e;
+}
+
+.icon.expo {
+  color: #000020;
+}
+
+.icon.node {
+  color: #339933;
 }
 
 @keyframes float {

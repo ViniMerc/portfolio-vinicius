@@ -1,5 +1,12 @@
 import { motion } from "framer-motion";
-import { SiMui, SiNextdotjs, SiReact } from "react-icons/si";
+import {
+  SiMui,
+  SiNextdotjs,
+  SiReact,
+  SiJavascript,
+  SiExpo,
+  SiNodedotjs,
+} from "react-icons/si";
 
 const ProfileSection = () => {
   return (
@@ -27,6 +34,9 @@ const ProfileSection = () => {
         <SiReact className="icon react" title="React" />
         <SiNextdotjs className="icon next" title="Next.js" />
         <SiMui className="icon mui" title="Material UI" />
+        <SiJavascript className="icon javascript" title="JavaScript" />
+        <SiExpo className="icon expo" title="Expo" />
+        <SiNodedotjs className="icon node" title="Node.js" />
       </motion.div>
 
       <motion.h1
