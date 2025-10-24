@@ -77,7 +77,7 @@ export default function HighlightsSection() {
             position: "relative",
             padding: "1rem",
             borderRadius: 12,
-            background: "rgba(0,0,0,0.92)", // ainda mais escuro
+            background: "#071820ff", // ainda mais escuro
             border: "1px solid rgba(255,255,255,0.06)",
             display: "flex",
             alignItems: "stretch",
@@ -276,7 +276,7 @@ export default function HighlightsSection() {
                 borderRadius: "50%",
                 border: "none",
                 background: "rgba(255,255,255,0.12)",
-                color: "#111",
+                color: "white",
                 cursor: repos.length > 1 ? "pointer" : "not-allowed",
               }}
             >
@@ -292,7 +292,7 @@ export default function HighlightsSection() {
                 borderRadius: "50%",
                 border: "none",
                 background: "rgba(255,255,255,0.12)",
-                color: "#111",
+                color: "white",
                 cursor: repos.length > 1 ? "pointer" : "not-allowed",
               }}
             >
